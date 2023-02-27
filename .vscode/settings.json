@@ -1,0 +1,7 @@
+{
+    "python.linting.pylintEnabled": false,
+    "python.linting.enabled": false,
+    "emmet.includeLanguages": {
+        "django-html": "html"
+    }
+}
