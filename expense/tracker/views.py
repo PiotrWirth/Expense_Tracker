@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import ExpenseForm
 from .models import Expense
 from django.http import HttpResponseRedirect
@@ -17,4 +17,10 @@ def index(request):
 def edit(request,id):
     expense = Expense.objects.get(id=id)
     expense_form = ExpenseForm(instance=expense)
+    if request.method == 'POST':
+        form = ExpenseForm(request.POST, instance=expense)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        
     return render(request,'tracker/edit.html',{'expense_form':expense_form})
