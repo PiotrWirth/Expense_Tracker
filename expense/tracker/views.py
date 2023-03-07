@@ -24,3 +24,9 @@ def edit(request,id):
             return redirect('index')
         
     return render(request,'tracker/edit.html',{'expense_form':expense_form})
+
+def delete(request,id):
+    if request.method == 'POST' and 'delete' in request.POST:
+        expense = Expense.objects.get(id=id)
+        expense.delete()
+    return redirect('index')
