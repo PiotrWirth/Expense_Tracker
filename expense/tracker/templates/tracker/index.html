@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static%}
 {% block content %}
     <h1>This is the index page</h1>
     <form class='shadow-lg m-10 rounded-lg ' method="POST">
@@ -47,11 +48,15 @@
             <span class='font-bold'>{{expense.amount}}</span>
             <span class='font-bold'>{{expense.category}}</span>
             <span class='font-bold'>{{expense.date}}</span>
-            <span class='font-bold'><a href="{% url 'edit' expense.id %}">Edit</a></span>
+            <span class='font-bold'><a href="{% url 'edit' expense.id %}">
+                <img class='h-5' src="{% static 'tracker/images/edit.png' %}" alt="">
+            </a></span>
             <span class='font-bold'>
                 <form action="{% url 'delete' expense.id %}" method="post">
                    {% csrf_token %}
-                   <button type='submit' name='delete'>Delete</button> 
+                   <button type='submit' name='delete'>
+                    <img class='h-5' src="{% static 'tracker/images/delete.png' %}" alt="">
+                   </button> 
                 </form>
             </span>
         </div>
