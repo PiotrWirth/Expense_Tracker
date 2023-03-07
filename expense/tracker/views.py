@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import ExpenseForm
 from .models import Expense
 from django.http import HttpResponseRedirect
+from django.db.models import Sum
 # Create your views here.
 def index(request):
     if request.method =='POST':
@@ -11,8 +12,9 @@ def index(request):
             return HttpResponseRedirect('/')
     
     expenses = Expense.objects.all()
+    total_expenses = expenses.aggregate(Sum('amount'))
     expense_form = ExpenseForm()
-    return render(request,'tracker/index.html', {'expense_form':expense_form,'expenses':expenses})
+    return render(request,'tracker/index.html', {'expense_form':expense_form,'expenses':expenses,'total_expenses':total_expenses})
 
 def edit(request,id):
     expense = Expense.objects.get(id=id)
