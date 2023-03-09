@@ -17,15 +17,15 @@ def index(request):
 
 
     last_year = datetime.date.today() - datetime.timedelta(days=365)
-    data = Expense.objects.filter(date__qt=last_year)
+    data = Expense.objects.filter(date__gt=last_year)
     yearly_sum = data.aggregate(Sum('amount'))
 
     last_month = datetime.date.today() - datetime.timedelta(days=30)
-    data = Expense.objects.filter(date__qt=last_month)
+    data = Expense.objects.filter(date__gt=last_month)
     monthly_sum = data.aggregate(Sum('amount'))
 
     last_week = datetime.date.today() - datetime.timedelta(days=7)
-    data = Expense.objects.filter(date__qt=last_week)
+    data = Expense.objects.filter(date__gt=last_week)
     weekly_sum = data.aggregate(Sum('amount'))
 
     expense_form = ExpenseForm()
