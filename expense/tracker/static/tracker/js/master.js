@@ -1,8 +1,22 @@
+const cats = []
+
+const catSumDiv = document.getElementById('cat-sum-table').getElementsByTagName('div')
+
+for (let i = 0; i < catSumDiv.length; i++) {
+    if(i%2 == 1){
+
+    }else{
+        cats.push(catSumDiv[i].innerText)
+    }
+}
+
+console.log(cats)
+
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'pie',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: cats,
         datasets: [{
             label: '# of Votes',
             data: [12, 19, 3, 5, 2, 3],
