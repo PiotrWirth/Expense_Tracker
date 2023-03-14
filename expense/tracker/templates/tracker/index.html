@@ -110,7 +110,7 @@
                     </div>
                     <div class='flex flex-wrap px-20 py-5'>
                         <span class='text-green-500'>
-                            ${{ daily_sum.sum | intcomma }}
+                            ${{ daily_sum.sum }}
                         </span>
                     </div>
                 {% endfor %}
@@ -142,11 +142,11 @@
     <div class='flex'>
         <div class='w-1/2 shadow-lg ml-10'>
             <h1 class='m-10'>Expense spread across categories</h1>
-            <canvas id="myChart" class='m-10'></canvas>
+            <canvas id="catChart" class='m-10'></canvas>
         </div>
-
         <div class='w-1/2 shadow-lg ml-10'>
-
+            <h1 class='m-10'>Daily Expense Sum</h1>
+            <canvas id="dailyChart" class='m-10'></canvas>
         </div>
 
     </div>
