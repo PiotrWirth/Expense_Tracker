@@ -1,16 +1,17 @@
 const cats = []
+const cat_sums = []
 
 const catSumDiv = document.getElementById('cat-sum-table').getElementsByTagName('div')
 
 for (let i = 0; i < catSumDiv.length; i++) {
     if(i%2 == 1){
-
+        cat_sums.push(catSumDiv[i].innerText.replace("$",""))
     }else{
         cats.push(catSumDiv[i].innerText)
     }
 }
 
-console.log(cats)
+console.log(cat_sums)
 
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
@@ -18,8 +19,8 @@ var myChart = new Chart(ctx, {
     data: {
         labels: cats,
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: 'Expense across categories',
+            data: cat_sums,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
