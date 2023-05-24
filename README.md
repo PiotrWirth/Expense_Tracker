@@ -4,9 +4,13 @@ Welcome to my expense tracker project.
 
 To properly use this project you have to change the path for python in pyvenv.cfg to use the python virtual enviroment.
 
+# About
+
 This is a Django 4.1.4 project.
 
 This application allows the user to track expenses over days, months, and years by spending category. 
+
+# Technologies
 
 Front-end technologies used in the project:
 - HTML
@@ -14,8 +18,9 @@ Front-end technologies used in the project:
 
 Back-end technologies used in the project:
 - Python
+- Django
 
-The main functions include:
+# Main functions
 
 - Adding expenses to the database (type, amount, category)
 - Displaying data about added expenses with the date the expense was added
