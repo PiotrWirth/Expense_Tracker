@@ -2,7 +2,6 @@
 
 Welcome to my expense tracker project.
 
-To properly use this project you have to change the path for python in pyvenv.cfg to use the python virtual enviroment.
 
 # About
 
